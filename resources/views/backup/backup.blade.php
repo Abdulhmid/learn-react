@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <title>React Js</title>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <script src="http://fb.me/react-0.12.2.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -20,6 +21,8 @@
         <div id="content-empat"></div>
         
         <div id="content-lima"></div>
+
+        <div id="content-combine"></div>
 
 
         <script type="text/jsx">
@@ -118,6 +121,49 @@
             });
 
             React.render(<ToggleText default="World" alt="Mars" />, document.getElementById('content-lima'));
+
+
+
+var ProductItem = React.createClass({
+  render: function () {
+    return (
+      <tr>
+        <td>{this.props.name}</td>
+        <td>{this.props.price}</td>
+      </tr>
+    );
+  }
+});
+
+var ProductsList = React.createClass({
+  render: function () {
+    var products = _.map(this.props.products, function (product, index) {
+      return (
+        <div>
+            <ProductItem
+              key={index}
+              name={product.name}
+              price={product.price} />
+        </div>
+      );
+    });
+    
+    return (
+      <table>
+        {products}
+      </table>
+    );
+  }
+});
+
+// Could come from an API, LocalStorage, another component, etc...
+var products = [
+  { name: 'Toast', price: 1499 },
+  { name: 'Bacon', price: 3245 },
+  { name: 'Coffee', price : 300 }
+];
+
+React.render(<ProductsList products={products} />, document.getElementById('content-combine'));
 
 
 
