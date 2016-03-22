@@ -23,7 +23,8 @@
 
 
         <script type="text/jsx">
-
+            React.render(<h1>Hello Broo</h1>,document.getElementById('content-tiga'));
+            
             var ReactAh1 = React.createClass({
                 render : function(){
                     return(
@@ -85,7 +86,7 @@
                 document.getElementById('content-dua')
             );
 
-            React.render(<h1>Hello Broo</h1>,document.getElementById('content-tiga'));
+            
 
 
             var ToggleText = React.createClass({
