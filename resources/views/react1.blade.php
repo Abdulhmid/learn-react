@@ -10,9 +10,14 @@
 
     </head>
     <body>
+        
         <div id="content"></div>
 
         <div id="content-dua"></div>
+
+        <div id="content-tiga"></div>
+
+        <div id="content-empat"></div>
 
         <script type="text/jsx">
 
@@ -33,6 +38,26 @@
                 </div>, 
                 document.getElementById('content')
             );
+
+            var ComponentDua = React.createClass({
+                actionSomething : function(){
+                    alert("Hello Brooo"+this.props.children);
+                },
+                render : function(){
+                    return (
+                        <div>
+                            <h3>You Broo {this.props.name} </h3>
+                            <button onClick={this.actionSomething}>Clik broo</button>
+                        </div>
+                    );
+                }
+            });
+
+            React.render(
+                    <ComponentDua name="Budi">Brooooo BOyy</ComponentDua>,
+                document.getElementById('content-empat')
+            );
+
 
 
             var ReactAh = React.createClass({
@@ -56,6 +81,9 @@
                 </div>, 
                 document.getElementById('content-dua')
             );
+
+            React.render(<h1>Hello Broo</h1>,document.getElementById('content-tiga'));
+
 
 
         </script>
